@@ -45,6 +45,12 @@ nav {
     position: relative;
 }
 .logo { font-size:1.5rem; font-weight:800; color:#fff; }
+.logo img {
+    height: 45px;         /* Ajusta este número hasta que se vea del porte que quieras */
+    width: auto;          /* Esto mantiene la proporción para que no se vea estirado */
+    vertical-align: middle; /* Lo alinea al centro con el texto de al lado */
+    margin-right: 10px;   /* Le da un aire entre el bus y la palabra MOVICERRI */
+}
 .nav-toggle { display:none; color:#fff; }
 ul { display:flex; gap:25px; list-style:none; }
 a {
