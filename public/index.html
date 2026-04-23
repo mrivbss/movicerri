@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MOVICERRI - Solución inteligente para optimizar el transporte público en Cerrillos mediante IA y reconocimiento de personas en paraderos.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>MOVICERRI - Transporte Inteligente Cerrillos</title>
+</head>
+<body id="top">
+
+    <!-- NAVBAR -->
+    <nav id="navbar">
+        <div class="logo">
+            <img src="images.png" alt="Logo MOVICERRI" style="height: 40px; vertical-align: middle;">
+            <span>MOVICERRI</span>
+        </div>
+        <div class="nav-toggle" id="navToggle" onclick="toggleNav()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul id="navMenu">
+            <li><a href="#top">INICIO</a></li>
+            <li><a href="#problema">PROBLEMA</a></li>
+            <li><a href="#solucion">SOLUCIÓN</a></li>
+            <li><a href="#dashboard">DASHBOARD</a></li>
+            <li><a href="#reportes">REPORTES</a></li>
+            <li><a href="#saldo">SALDO BIP</a></li>
+            <li><a href="#mapa-section">MAPA</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-animation"></div>
+        <div class="hero-content reveal">
+            <div class="hero-badge">🚌 Proyecto Universitario — Comuna de Cerrillos</div>
+            <h1>Transporte público <span class="text-gradient">inteligente</span> para Cerrillos</h1>
+            <p class="hero-desc">Utilizamos inteligencia artificial y visión computacional para detectar aglomeraciones en paraderos y activar protocolos que despachan más buses en tiempo real.</p>
+            <div class="hero-buttons">
+                <a href="#solucion" class="btn-primary"><i class="fas fa-lightbulb"></i> Conoce la Solución</a>
+                <a href="#dashboard" class="btn-secondary"><i class="fas fa-chart-line"></i> Ver Dashboard</a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-number" data-target="5">0</span>
+                    <span class="hero-stat-label">Paraderos Monitoreados</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number" data-target="40">0</span><span>%</span>
+                    <span class="hero-stat-label">Reducción de Espera</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number" data-target="9">0</span>
+                    <span class="hero-stat-label">Recorridos Activos</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEMA -->
+    <section class="section" id="problema">
+        <div class="section-header reveal">
+            <span class="section-tag">El Problema</span>
+            <h2>Transporte público en <span class="text-gradient">crisis</span></h2>
+            <p class="section-desc">Los vecinos de Cerrillos enfrentan diariamente tiempos de espera excesivos, buses saturados y falta de información en tiempo real.</p>
+        </div>
+        <div class="problems-grid">
+            <div class="problem-card reveal">
+                <div class="problem-icon"><i class="fas fa-clock"></i></div>
+                <h3>Esperas Excesivas</h3>
+                <p>En hora pico los tiempos de espera superan los 25 minutos, afectando la calidad de vida de miles de personas.</p>
+                <div class="problem-stat">+25 min</div>
+            </div>
+            <div class="problem-card reveal">
+                <div class="problem-icon"><i class="fas fa-users"></i></div>
+                <h3>Buses Saturados</h3>
+                <p>Los buses circulan al máximo de su capacidad en horarios punta, generando incomodidad y riesgos.</p>
+                <div class="problem-stat">150%</div>
+            </div>
+            <div class="problem-card reveal">
+                <div class="problem-icon"><i class="fas fa-database"></i></div>
+                <h3>Sin Datos en Tiempo Real</h3>
+                <p>La municipalidad no cuenta con información actualizada sobre la demanda real en los paraderos.</p>
+                <div class="problem-stat">0 datos</div>
+            </div>
+            <div class="problem-card reveal">
+                <div class="problem-icon"><i class="fas fa-route"></i></div>
+                <h3>Rutas Ineficientes</h3>
+                <p>No existe un sistema dinámico que adapte la frecuencia de buses según la demanda del momento.</p>
+                <div class="problem-stat">Estático</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOLUCIÓN -->
+    <section class="section section-dark" id="solucion">
+        <div class="section-header reveal">
+            <span class="section-tag">Nuestra Solución</span>
+            <h2>¿Cómo funciona <span class="text-gradient">MOVICERRI</span>?</h2>
+            <p class="section-desc">Un sistema inteligente de 4 pasos que conecta la detección automática con la acción municipal.</p>
+        </div>
+        <div class="steps-container">
+            <div class="step-card reveal">
+                <div class="step-number">01</div>
+                <div class="step-icon"><i class="fas fa-video"></i></div>
+                <h3>Detección con IA</h3>
+                <p>Cámaras en paraderos clave utilizan visión computacional para contar personas y detectar aglomeraciones en tiempo real.</p>
+            </div>
+            <div class="step-connector"><i class="fas fa-arrow-right"></i></div>
+            <div class="step-card reveal">
+                <div class="step-number">02</div>
+                <div class="step-icon"><i class="fas fa-bell"></i></div>
+                <h3>Protocolo de Alerta</h3>
+                <p>Cuando se supera el umbral de personas, se activa automáticamente un protocolo de alerta con prioridad según nivel de congestión.</p>
+            </div>
+            <div class="step-connector"><i class="fas fa-arrow-right"></i></div>
+            <div class="step-card reveal">
+                <div class="step-number">03</div>
+                <div class="step-icon"><i class="fas fa-building-columns"></i></div>
+                <h3>Aviso Municipal</h3>
+                <p>La municipalidad recibe una notificación con datos del paradero, cantidad de personas y ruta afectada para tomar acción inmediata.</p>
+            </div>
+            <div class="step-connector"><i class="fas fa-arrow-right"></i></div>
+            <div class="step-card reveal">
+                <div class="step-number">04</div>
+                <div class="step-icon"><i class="fas fa-bus"></i></div>
+                <h3>Más Buses en Ruta</h3>
+                <p>Se despachan vehículos adicionales en la ruta congestionada, reduciendo tiempos de espera y mejorando el servicio.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DASHBOARD -->
+    <section class="section" id="dashboard">
+        <div class="section-header reveal">
+            <span class="section-tag">Dashboard en Vivo</span>
+            <h2>Monitoreo <span class="text-gradient">en tiempo real</span></h2>
+            <p class="section-desc">Visualiza el estado actual de los recorridos de transporte público en Cerrillos.</p>
+        </div>
+        <div class="dashboard-container">
+            <!-- Gráfico de espera (existente) -->
+            <div class="card reveal">
+                <h3><i class="fas fa-chart-area"></i> Tiempos de espera — Recorrido <span id="nombreRecorrido">I14</span></h3>
+                <div class="selector-recorrido">
+                    <button class="btn-micro active" onclick="actualizarGrafico('I14', this)">I14</button>
+                    <button class="btn-micro" onclick="actualizarGrafico('I18', this)">I18</button>
+                    <button class="btn-micro" onclick="actualizarGrafico('I01', this)">I01</button>
+                </div>
+                <canvas id="graficoEspera"></canvas>
+            </div>
+            
+            <!-- Estado de servicios (existente, mejorado) -->
+            <div class="card reveal">
+                <h3 style="display:flex; justify-content:space-between; align-items:center;">
+                    <span><i class="fas fa-signal"></i> Estado de Servicios</span>
+                    <button class="btn-micro" onclick="actualizarEstadoServicios()" title="Actualizar estado"><i class="fas fa-sync-alt"></i></button>
+                </h3>
+                <div class="status-list">
+                    <div class="status-item">
+                        <div class="status-info"><i class="fas fa-bus"></i><span>Recorrido I14</span></div>
+                        <span class="badge badge-green"><i class="fas fa-check-circle"></i> Fluido</span>
+                    </div>
+                    <div class="status-item">
+                        <div class="status-info"><i class="fas fa-bus"></i><span>Recorrido I18</span></div>
+                        <span class="badge badge-yellow"><i class="fas fa-exclamation-triangle"></i> Retraso 5 min</span>
+                    </div>
+                    <div class="status-item">
+                        <div class="status-info"><i class="fas fa-bus"></i><span>Recorrido I01</span></div>
+                        <span class="badge badge-green"><i class="fas fa-check-circle"></i> Fluido</span>
+                    </div>
+                </div>
+                <div class="alerts">
+                    <p><i class="fas fa-triangle-exclamation"></i> <strong>Alerta:</strong> Desvío en Av. Pedro Aguirre Cerda por trabajos en la vía.</p>
+                </div>
+                <p class="last-update"><i class="fas fa-sync-alt"></i> Última actualización: <span id="lastUpdate">hace 2 minutos</span></p>
+            </div>
+            
+            <!-- Protocolo de alerta (nuevo) -->
+            <div class="card card-protocol reveal">
+                <h3><i class="fas fa-shield-halved"></i> Protocolo de Alerta</h3>
+                <div class="protocol-visual">
+                    <div class="protocol-paradero">
+                        <div class="paradero-label">Paradero Av. Lo Errázuriz</div>
+                        <div class="people-counter">
+                            <i class="fas fa-person"></i>
+                            <span class="people-count" id="peopleCount">12</span>
+                            <span class="people-max">/ 20 máx</span>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar" id="peopleBar" style="width: 60%"></div>
+                        </div>
+                        <div class="protocol-status" id="protocolStatus">
+                            <span class="protocol-badge protocol-normal"><i class="fas fa-check"></i> Normal</span>
+                        </div>
+                    </div>
+                    <button class="btn-simulate" onclick="simularProtocolo()"><i class="fas fa-play"></i> Simular Hora Pico</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REPORTES EN TIEMPO REAL -->
+    <section class="section section-dark" id="reportes">
+        <div class="section-header reveal">
+            <span class="section-tag">Reportes Ciudadanos</span>
+            <h2>Sistema de <span class="text-gradient">reportes en tiempo real</span></h2>
+            <p class="section-desc">Reporta problemas del transporte público y ayuda a mejorar el servicio. Tus reportes se guardan y se envían a la municipalidad.</p>
+        </div>
+        <div class="reportes-container">
+            <!-- Formulario -->
+            <div class="card reveal" id="reportForm">
+                <h3><i class="fas fa-pen-to-square"></i> Nuevo Reporte</h3>
+                <form onsubmit="enviarReporte(event)">
+                    <div class="form-group">
+                        <label for="reportType"><i class="fas fa-tag"></i> Tipo de problema</label>
+                        <select id="reportType" required>
+                            <option value="">Selecciona...</option>
+                            <option value="retraso">🕐 Retraso excesivo</option>
+                            <option value="saturacion">👥 Bus saturado</option>
+                            <option value="no-paso">🚫 Bus no pasó</option>
+                            <option value="seguridad">⚠️ Problema de seguridad</option>
+                            <option value="infraestructura">🔧 Paradero en mal estado</option>
+                            <option value="conductor">🚗 Conducción peligrosa</option>
+                            <option value="otro">📝 Otro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="reportRoute"><i class="fas fa-route"></i> Recorrido</label>
+                        <select id="reportRoute" required>
+                            <option value="">Selecciona...</option>
+                            <option value="I14">I14</option>
+                            <option value="I18">I18</option>
+                            <option value="I01">I01</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="reportLocation"><i class="fas fa-location-dot"></i> Ubicación / Paradero</label>
+                        <input type="text" id="reportLocation" placeholder="Ej: Av. Lo Errázuriz con Pedro Aguirre Cerda" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reportDesc"><i class="fas fa-comment"></i> Descripción</label>
+                        <textarea id="reportDesc" rows="3" placeholder="Describe el problema..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary btn-full"><i class="fas fa-paper-plane"></i> Enviar Reporte</button>
+                </form>
+            </div>
+            
+            <!-- Lista de reportes -->
+            <div class="card reveal">
+                <h3><i class="fas fa-list-check"></i> Reportes Recientes <span class="report-count" id="reportCount">0</span></h3>
+                <div class="reports-filter">
+                    <button class="btn-filter active" onclick="filtrarReportes('todos', this)">Todos</button>
+                    <button class="btn-filter" onclick="filtrarReportes('retraso', this)">Retrasos</button>
+                    <button class="btn-filter" onclick="filtrarReportes('saturacion', this)">Saturación</button>
+                    <button class="btn-filter" onclick="filtrarReportes('seguridad', this)">Seguridad</button>
+                </div>
+                <div class="reports-list" id="reportsList">
+                    <div class="empty-reports">
+                        <i class="fas fa-inbox"></i>
+                        <p>No hay reportes aún. ¡Sé el primero en reportar!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SALDO TARJETA BIP -->
+    <section class="section" id="saldo">
+        <div class="section-header reveal">
+            <span class="section-tag">Consulta tu Saldo</span>
+            <h2>Saldo de <span class="text-gradient">tarjeta BIP!</span></h2>
+            <p class="section-desc">Consulta el saldo real de tu tarjeta BIP! ingresando el número de tu tarjeta. Mantente informado antes de viajar.</p>
+        </div>
+        <div class="saldo-container reveal">
+            <div class="card saldo-card">
+                <div class="bip-card-visual">
+                    <div class="bip-card-front">
+                        <div class="bip-card-logo">bip!</div>
+                        <div class="bip-card-number" id="bipCardDisplay">•••• •••• •••• ••••</div>
+                        <div class="bip-card-label">Tarjeta de Transporte Público</div>
+                    </div>
+                </div>
+                <div class="saldo-form">
+                    <div class="form-group">
+                        <label for="bipNumber"><i class="fas fa-credit-card"></i> Número de tarjeta BIP!</label>
+                        <div class="input-with-btn">
+                            <input type="text" id="bipNumber" placeholder="Ej: 12345678" maxlength="8" oninput="actualizarTarjetaVisual()">
+                            <button type="button" class="btn-primary" onclick="consultarSaldo()"><i class="fas fa-search"></i> Consultar</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="saldo-result" id="saldoResult" style="display:none;">
+                    <div class="saldo-info-grid">
+                        <div class="saldo-main">
+                            <span class="saldo-label">Saldo Disponible</span>
+                            <span class="saldo-amount" id="saldoAmount">$0</span>
+                        </div>
+                        <div class="saldo-details">
+                            <div class="saldo-detail">
+                                <i class="fas fa-calendar-plus"></i>
+                                <div>
+                                    <span class="detail-label">Última Carga</span>
+                                    <span class="detail-value" id="lastCharge">-</span>
+                                </div>
+                            </div>
+                            <div class="saldo-detail">
+                                <i class="fas fa-bus"></i>
+                                <div>
+                                    <span class="detail-label">Último Viaje</span>
+                                    <span class="detail-value" id="lastTrip">-</span>
+                                </div>
+                            </div>
+                            <div class="saldo-detail">
+                                <i class="fas fa-money-bill-wave"></i>
+                                <div>
+                                    <span class="detail-label">Costo Último Viaje</span>
+                                    <span class="detail-value" id="lastTripCost">-</span>
+                                </div>
+                            </div>
+                            <div class="saldo-detail">
+                                <i class="fas fa-hashtag"></i>
+                                <div>
+                                    <span class="detail-label">Viajes este Mes</span>
+                                    <span class="detail-value" id="monthTrips">-</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="saldo-error" id="saldoError" style="display:none;">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <p>Tarjeta no encontrada. Verifica el número e intenta nuevamente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAPA -->
+    <section class="section section-dark" id="mapa-section">
+        <div class="section-header reveal">
+            <span class="section-tag">Ubicación</span>
+            <h2>Mapa de <span class="text-gradient">Cerrillos</span></h2>
+            <p class="section-desc">Visualiza la zona de cobertura del proyecto y los paraderos clave monitoreados.</p>
+        </div>
+        <div class="mapa-container reveal">
+            <div class="paraderos-list">
+                <h3><i class="fas fa-map-pin"></i> Paraderos Clave</h3>
+                <div class="paradero-item">
+                    <span class="paradero-dot dot-red"></span>
+                    <div>
+                        <strong>Av. Lo Errázuriz / Pedro Aguirre Cerda</strong>
+                        <small>Alta demanda — I14, I18</small>
+                    </div>
+                </div>
+                <div class="paradero-item">
+                    <span class="paradero-dot dot-yellow"></span>
+                    <div>
+                        <strong>Av. Departamental / Lo Errázuriz</strong>
+                        <small>Demanda media — I01</small>
+                    </div>
+                </div>
+                <div class="paradero-item">
+                    <span class="paradero-dot dot-green"></span>
+                    <div>
+                        <strong>Costanera Sur / Cerrillos</strong>
+                        <small>Demanda normal — I14</small>
+                    </div>
+                </div>
+                <div class="paradero-item">
+                    <span class="paradero-dot dot-red"></span>
+                    <div>
+                        <strong>Metro Cerrillos (Línea 6)</strong>
+                        <small>Alta demanda — I14, I18, I01</small>
+                    </div>
+                </div>
+                <div class="paradero-item">
+                    <span class="paradero-dot dot-yellow"></span>
+                    <div>
+                        <strong>Av. 5 de Abril / Las Rejas</strong>
+                        <small>Demanda media — I18</small>
+                    </div>
+                </div>
+            </div>
+            <iframe id="mapa" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53246.61908865668!2d-70.74836412586616!3d-33.49397940177723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c4b5c7778b45%3A0x2a3e747ce6c085e6!2sCerrillos%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses!2scl!4v1714000000000!5m2!1ses!2scl" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4><img src="images.png" alt="Logo" style="height:24px;vertical-align:middle;"> MOVICERRI</h4>
+                <p>Solución inteligente para el transporte público de Cerrillos. Proyecto estudiantil que utiliza IA para mejorar la movilidad urbana.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Links Rápidos</h4>
+                <a href="index.html#top">Inicio</a>
+                <a href="index.html#problema">El Problema</a>
+                <a href="index.html#solucion">Solución</a>
+                <a href="index.html#dashboard">Dashboard</a>
+                <a href="index.html#reportes">Reportes</a>
+            </div>
+            <div class="footer-col">
+                <h4>Recursos</h4>
+                <a href="index.html#saldo">Saldo BIP!</a>
+                <a href="index.html#mapa-section">Mapa</a>
+                <a href="soporte.html">Soporte</a>
+                <a href="sesion.html">Mi Cuenta</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p><i class="fas fa-envelope"></i> contacto@movicerri.cl</p>
+                <p><i class="fas fa-map-marker-alt"></i> Cerrillos, Santiago, Chile</p>
+                <div class="social-links">
+                    <a href="https://instagram.com/m.vlejandroo" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/mrivbss" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MOVICERRI — Proyecto Estudiantil, Comuna de Cerrillos</p>
+        </div>
+    </footer>
+
+    <!-- CHATBOT -->
+    <div class="chatbot-btn" id="chatbotBtn" onclick="toggleChatbot()">
+        <i class="fas fa-comments"></i>
+        <span class="chatbot-pulse"></span>
+    </div>
+    <div class="chatbot-window" id="chatbotWindow">
+        <div class="chatbot-header">
+            <div class="chatbot-header-info">
+                <div class="chatbot-avatar"><i class="fas fa-robot"></i></div>
+                <div>
+                    <strong>Asistente MOVICERRI</strong>
+                    <small><span class="online-dot"></span> En línea</small>
+                </div>
+            </div>
+            <button class="chatbot-close" onclick="toggleChatbot()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="chatbot-messages" id="chatMessages">
+            <div class="chat-msg bot">
+                <div class="chat-bubble">¡Hola! 👋 Soy el asistente virtual de MOVICERRI. ¿En qué puedo ayudarte?</div>
+            </div>
+            <div class="chat-suggestions" id="chatSuggestions">
+                <button onclick="sendSuggestion('¿Cómo funciona MOVICERRI?')">¿Cómo funciona?</button>
+                <button onclick="sendSuggestion('¿Cuáles son los recorridos?')">Recorridos</button>
+                <button onclick="sendSuggestion('¿Cómo reporto un problema?')">Reportar problema</button>
+                <button onclick="sendSuggestion('¿Cómo consulto mi saldo BIP?')">Saldo BIP</button>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatInput" placeholder="Escribe tu mensaje..." onkeypress="if(event.key==='Enter')sendChat()">
+            <button onclick="sendChat()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

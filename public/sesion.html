@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mi Cuenta - MOVICERRI">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Mi Cuenta - MOVICERRI</title>
+</head>
+<body id="top">
+
+    <!-- NAVBAR -->
+    <nav id="navbar">
+        <div class="logo">
+            <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 10px;">
+                <img src="images.png" alt="Logo MOVICERRI" style="height: 40px;">
+                <span style="color: white;">MOVICERRI</span>
+            </a>
+        </div>
+        <div class="nav-toggle" id="navToggle" onclick="toggleNav()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul id="navMenu">
+            <li><a href="index.html#top">INICIO</a></li>
+            <li><a href="index.html#dashboard">DASHBOARD</a></li>
+            <li><a href="index.html#reportes">REPORTES</a></li>
+            <li><a href="index.html#saldo">SALDO BIP</a></li>
+            <li><a href="sesion.html" style="color: var(--color-primary);">MI CUENTA</a></li>
+        </ul>
+    </nav>
+
+    <!-- CUENTA HEADER -->
+    <section class="account-header">
+        <div class="section-header reveal">
+            <span class="section-tag">Perfil de Usuario</span>
+            <h2>Bienvenido a tu <span class="text-gradient">Cuenta</span></h2>
+        </div>
+    </section>
+
+    <!-- DASHBOARD DE USUARIO -->
+    <section class="section" style="padding-top: 0;">
+        <div class="dashboard-container">
+            <!-- Perfil del usuario -->
+            <div class="card reveal">
+                <div class="user-profile">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-info" id="userInfoContainer">
+                        <h2 id="userNameDisplay">Juan Pérez</h2>
+                        <p><i class="fas fa-envelope"></i> <span id="userEmailDisplay">juan.perez@email.com</span></p>
+                    </div>
+                </div>
+                <hr style="border-color: rgba(255,255,255,0.1); margin-bottom: 15px;">
+                <p><i class="fas fa-map-marker-alt" style="color: var(--color-primary);"></i> Cerrillos, Santiago</p>
+                <p><i class="fas fa-calendar-alt" style="color: var(--color-primary);"></i> Miembro desde Abril 2026</p>
+                <button id="btnEditProfile" class="btn-secondary" style="width: 100%; margin-top: 20px;" onclick="toggleEditProfile()"><i class="fas fa-edit"></i> Editar Perfil</button>
+            </div>
+
+            <!-- Rutas Favoritas -->
+            <div class="card reveal">
+                <h3><i class="fas fa-star"></i> Mis Rutas Favoritas</h3>
+                <div class="status-list" style="margin-top: 20px;">
+                    <div class="status-item" style="background: var(--color-surface); padding: 15px; border-radius: var(--radius); margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
+                        <div class="status-info"><i class="fas fa-bus" style="color: var(--color-primary);"></i><span>Recorrido I14</span></div>
+                        <button class="btn-micro" style="background: transparent; border-color: transparent;"><i class="fas fa-trash" style="color: var(--color-text-secondary);"></i></button>
+                    </div>
+                    <div class="status-item" style="background: var(--color-surface); padding: 15px; border-radius: var(--radius); margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
+                        <div class="status-info"><i class="fas fa-bus" style="color: var(--color-primary);"></i><span>Recorrido I18</span></div>
+                        <button class="btn-micro" style="background: transparent; border-color: transparent;"><i class="fas fa-trash" style="color: var(--color-text-secondary);"></i></button>
+                    </div>
+                </div>
+                <button class="btn-primary" style="width: 100%; margin-top: 10px;"><i class="fas fa-plus"></i> Añadir Ruta</button>
+            </div>
+
+            <!-- Mi Tarjeta BIP vinculada -->
+            <div class="card reveal">
+                <h3 style="display: flex; justify-content: space-between; align-items: center;">
+                    <span><i class="fas fa-credit-card"></i> Mi Tarjeta BIP!</span>
+                    <button class="btn-micro" onclick="toggleEditBip()" id="btnEditBip" style="background: transparent; border: 1px solid rgba(255,255,255,0.2);"><i class="fas fa-edit"></i></button>
+                </h3>
+                <div class="bip-card-visual" style="transform: scale(0.9); transform-origin: top left; margin: 15px 0;">
+                    <div class="bip-card-front" style="padding: 20px; background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); border-radius: 15px; position: relative; color: white;">
+                        <div class="bip-card-logo" style="font-weight: bold; font-size: 1.5rem; font-style: italic;">bip!</div>
+                        <div class="bip-card-number" id="linkedBipNumberDisplay" style="font-size: 1.4rem; letter-spacing: 2px; margin: 20px 0;">1234 5678</div>
+                        <div class="bip-card-label" style="font-size: 0.8rem; opacity: 0.8;">Tarjeta Vinculada</div>
+                    </div>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                    <span style="color: var(--color-text-secondary);">Saldo Actual:</span>
+                    <span style="font-size: 1.5rem; font-weight: bold; color: white;" id="linkedBipBalance">$1.450</span>
+                </div>
+                <p id="bipUpdateFeedback" style="font-size: 0.8rem; color: var(--color-primary); text-align: center; margin-bottom: 10px; display: none;"></p>
+                <button id="btn-actualizar" class="btn-secondary" style="width: 100%;"><i class="fas fa-sync-alt"></i> Actualizar Saldo</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4><img src="images.png" alt="Logo" style="height:24px;vertical-align:middle;"> MOVICERRI</h4>
+                <p>Solución inteligente para el transporte público de Cerrillos. Proyecto estudiantil que utiliza IA para mejorar la movilidad urbana.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Links Rápidos</h4>
+                <a href="index.html#top">Inicio</a>
+                <a href="index.html#problema">El Problema</a>
+                <a href="index.html#solucion">Solución</a>
+                <a href="index.html#dashboard">Dashboard</a>
+                <a href="index.html#reportes">Reportes</a>
+            </div>
+            <div class="footer-col">
+                <h4>Recursos</h4>
+                <a href="index.html#saldo">Saldo BIP!</a>
+                <a href="index.html#mapa-section">Mapa</a>
+                <a href="soporte.html">Soporte</a>
+                <a href="sesion.html">Mi Cuenta</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p><i class="fas fa-envelope"></i> contacto@movicerri.cl</p>
+                <p><i class="fas fa-map-marker-alt"></i> Cerrillos, Santiago, Chile</p>
+                <div class="social-links">
+                    <a href="https://instagram.com/m.vlejandroo" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/mrivbss" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MOVICERRI — Proyecto Estudiantil, Comuna de Cerrillos</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

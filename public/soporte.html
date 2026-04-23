@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>MOVICERRI - Soporte</title>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav id="navbar">
+        <div class="logo">
+            <img src="images.png" alt="Logo MOVICERRI" style="height: 40px; vertical-align: middle;">
+            <span>MOVICERRI</span>
+        </div>
+        <div class="nav-toggle" id="navToggle" onclick="toggleNav()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul id="navMenu">
+            <li><a href="index.html">VOLVER AL INICIO</a></li>
+        </ul>
+    </nav>
+
+    <!-- SOPORTE SECTION -->
+    <section class="section" style="min-height: 70vh;">
+        <div class="section-header reveal">
+            <span class="section-tag">Ayuda y Contacto</span>
+            <h2>Centro de <span class="text-gradient">Soporte</span></h2>
+            <p class="section-desc">Página de prueba para soporte técnico.</p>
+        </div>
+        
+        <div class="dashboard-container">
+            <div class="card reveal">
+                <h3><i class="fas fa-headset"></i> Envíanos un mensaje</h3>
+                <br>
+                <form onsubmit="event.preventDefault(); alert('Mensaje de prueba enviado. ¡Todo funciona correctamente!'); window.location.href='index.html';">
+                    <div class="form-group">
+                        <label for="nombre"><i class="fas fa-user"></i> Tu Nombre</label>
+                        <input type="text" id="nombre" placeholder="Ingresa tu nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje"><i class="fas fa-comment"></i> Mensaje</label>
+                        <textarea id="mensaje" rows="4" placeholder="¿En qué podemos ayudarte?" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary btn-full"><i class="fas fa-paper-plane"></i> Enviar Mensaje de Prueba</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4><img src="images.png" alt="Logo" style="height:24px;vertical-align:middle;"> MOVICERRI</h4>
+                <p>Solución inteligente para el transporte público de Cerrillos. Proyecto estudiantil que utiliza IA para mejorar la movilidad urbana.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Links Rápidos</h4>
+                <a href="index.html#top">Inicio</a>
+                <a href="index.html#problema">El Problema</a>
+                <a href="index.html#solucion">Solución</a>
+                <a href="index.html#dashboard">Dashboard</a>
+                <a href="index.html#reportes">Reportes</a>
+            </div>
+            <div class="footer-col">
+                <h4>Recursos</h4>
+                <a href="index.html#saldo">Saldo BIP!</a>
+                <a href="index.html#mapa-section">Mapa</a>
+                <a href="soporte.html">Soporte</a>
+                <a href="sesion.html">Mi Cuenta</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p><i class="fas fa-envelope"></i> contacto@movicerri.cl</p>
+                <p><i class="fas fa-map-marker-alt"></i> Cerrillos, Santiago, Chile</p>
+                <div class="social-links">
+                    <a href="https://instagram.com/m.vlejandroo" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/mrivbss" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MOVICERRI — Proyecto Estudiantil, Comuna de Cerrillos</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
