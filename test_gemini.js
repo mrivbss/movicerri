@@ -1,11 +1,11 @@
 require('dotenv').config();
 const { GoogleGenAI } = require('@google/genai');
 
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+const ai = new GoogleGenAI({ apiKey: "AIzaSyAZl_cJ22u-EQT1drRaKgpTGJX5lwb1Xnk" });
 
 async function test() {
     try {
-        console.log("Key:", process.env.GEMINI_API_KEY ? "Loaded" : "Missing");
+        console.log("Testing with hardcoded key...");
         const response = await ai.models.generateContent({
             model: 'gemini-2.5-flash',
             contents: 'Hola',
