@@ -100,32 +100,34 @@ async function sendChat() {
     container.appendChild(typingMsg);
     container.scrollTop = container.scrollHeight;
 
-    try {
-        const response = await fetch('/api/chat', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ message: msg })
-        });
-        
-        const data = await response.json();
-        
-        // Remover el indicador de escribiendo
+    // Simular tiempo de respuesta de red
+    setTimeout(() => {
         const typingEl = document.getElementById(typingId);
         if (typingEl) typingEl.remove();
 
-        if (data.reply) {
-            appendChatMessage('bot', data.reply);
-        } else if (data.error) {
-            appendChatMessage('bot', `Error del servidor: ${data.error}`);
+        let reply = '';
+        const lowerMsg = msg.toLowerCase();
+        
+        if (lowerMsg.includes('hola') || lowerMsg.includes('buenas')) {
+            reply = '¡Hola! Soy el asistente virtual de MOVICERRI. ¿En qué te puedo ayudar hoy? 😊';
+        } else if (lowerMsg.includes('i14')) {
+            reply = 'El recorrido I14 se encuentra operando con normalidad. El próximo bus pasará en aproximadamente 5 minutos. 🚌';
+        } else if (lowerMsg.includes('i18')) {
+            reply = 'El recorrido I18 presenta un retraso leve debido al tráfico. Tiempo estimado de espera: 10 minutos. ⏱️';
+        } else if (lowerMsg.includes('i01')) {
+            reply = 'El recorrido I01 está fluido. El próximo bus llegará en 2 minutos. 🚍';
+        } else if (lowerMsg.includes('reporte') || lowerMsg.includes('reportar')) {
+            reply = 'Puedes enviar un reporte de incidencias o aglomeraciones usando el formulario en la sección "Reportes Comunitarios". 📝';
+        } else if (lowerMsg.includes('saldo') || lowerMsg.includes('bip')) {
+            reply = 'Puedes consultar el saldo de tu tarjeta BIP en la sección "Consulta Tarjeta BIP" ingresando los 8 dígitos de tu tarjeta. 💳';
+        } else if (lowerMsg.includes('funciona') || lowerMsg.includes('movicerri')) {
+            reply = 'MOVICERRI utiliza cámaras con IA para detectar aglomeraciones en los paraderos y notificar a la municipalidad para mejorar la frecuencia de los buses. 🤖👀';
         } else {
-            appendChatMessage('bot', 'Hubo un error de conexión con la IA.');
+            reply = 'Lo siento, solo puedo responder preguntas sobre MOVICERRI, recorridos de buses (I14, I18, I01), reportes y saldo BIP. ¿Te puedo ayudar con algo de eso? 🤔';
         }
-    } catch (error) {
-        console.error("Error al enviar mensaje a la API:", error);
-        const typingEl = document.getElementById(typingId);
-        if (typingEl) typingEl.remove();
-        appendChatMessage('bot', 'Problemas técnicos al contactar con la IA. Asegúrate de estar corriendo el servidor Node (no abriendo el archivo HTML directamente).');
-    }
+
+        appendChatMessage('bot', reply);
+    }, 1000);
 }
 
 function appendChatMessage(sender, text) {
