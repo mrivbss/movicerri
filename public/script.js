@@ -78,16 +78,52 @@ function sendSuggestion(text) {
     }
 }
 
-function sendChat() {
+function asyncSendChat() {
+    sendChat();
+}
+
+async function sendChat() {
     const input = document.getElementById('chatInput');
     const msg = input?.value.trim();
     if (!msg) return;
+    
     appendChatMessage('user', msg);
     input.value = '';
-    setTimeout(() => {
-        const reply = obtenerRespuestaBot(msg);
-        appendChatMessage('bot', reply);
-    }, 500);
+
+    // Añadir indicador de escribiendo...
+    const container = document.getElementById('chatMessages');
+    const typingId = 'typing-' + Date.now();
+    const typingMsg = document.createElement('div');
+    typingMsg.className = `chat-msg bot`;
+    typingMsg.id = typingId;
+    typingMsg.innerHTML = `<div class="chat-bubble"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div>`;
+    container.appendChild(typingMsg);
+    container.scrollTop = container.scrollHeight;
+
+    try {
+        const response = await fetch('/api/chat', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ message: msg })
+        });
+        
+        const data = await response.json();
+        
+        // Remover el indicador de escribiendo
+        const typingEl = document.getElementById(typingId);
+        if (typingEl) typingEl.remove();
+
+        if (data.reply) {
+            appendChatMessage('bot', data.reply);
+        } else {
+            appendChatMessage('bot', 'Hubo un error de conexión con la IA.');
+        }
+    } catch (error) {
+        console.error("Error al enviar mensaje a la API:", error);
+        const typingEl = document.getElementById(typingId);
+        if (typingEl) typingEl.remove();
+        appendChatMessage('bot', 'Problemas técnicos al contactar con la IA.');
+    }
 }
 
 function appendChatMessage(sender, text) {
@@ -97,19 +133,10 @@ function appendChatMessage(sender, text) {
     msgDiv.className = `chat-msg ${sender}`;
     const bubble = document.createElement('div');
     bubble.className = 'chat-bubble';
-    bubble.innerText = text;
+    bubble.innerText = text; // Usamos innerText para proteger de XSS si devuelve markdown simple, o si queremos formatear podemos parsear markdown luego.
     msgDiv.appendChild(bubble);
     container.appendChild(msgDiv);
     container.scrollTop = container.scrollHeight;
-}
-
-function obtenerRespuestaBot(msg) {
-    const lower = msg.toLowerCase();
-    if (lower.includes('cómo funciona')) return 'MOVICERRI utiliza IA para detectar aglomeraciones y avisa a la municipalidad, aumentando la frecuencia de buses.';
-    if (lower.includes('recorridos')) return 'Los recorridos principales son I14, I18 e I01, cubriendo las zonas más demandadas de Cerrillos.';
-    if (lower.includes('reportar')) return 'Puedes usar el formulario de "Reportes Ciudadanos" para notificar problemas en tiempo real.';
-    if (lower.includes('saldo')) return 'Ingresa tu número de tarjeta BIP en la sección de Saldo para consultar tu balance.';
-    return '¡Gracias por tu mensaje! Si necesitas ayuda, pregunta sobre el funcionamiento, recorridos, reportes o saldo.';
 }
 
 // ------------------------------------------------------------
