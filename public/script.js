@@ -116,12 +116,14 @@ async function sendChat() {
             reply = 'El recorrido I18 presenta un retraso leve debido al tráfico. Tiempo estimado de espera: 10 minutos. ⏱️';
         } else if (lowerMsg.includes('i01')) {
             reply = 'El recorrido I01 está fluido. El próximo bus llegará en 2 minutos. 🚍';
-        } else if (lowerMsg.includes('reporte') || lowerMsg.includes('reportar')) {
-            reply = 'Puedes enviar un reporte de incidencias o aglomeraciones usando el formulario en la sección "Reportes Comunitarios". 📝';
-        } else if (lowerMsg.includes('saldo') || lowerMsg.includes('bip')) {
-            reply = 'Puedes consultar el saldo de tu tarjeta BIP en la sección "Consulta Tarjeta BIP" ingresando los 8 dígitos de tu tarjeta. 💳';
+        } else if (lowerMsg.includes('recorrido') || lowerMsg.includes('bus') || lowerMsg.includes('micro')) {
+            reply = 'Actualmente monitoreamos los recorridos I14, I18 y I01. Puedes preguntarme por el estado de uno en específico, por ejemplo: "¿Cómo está la I14?". 🚌';
+        } else if (lowerMsg.includes('report') || lowerMsg.includes('problema')) {
+            reply = 'Puedes enviar un reporte de incidencias o aglomeraciones usando el formulario en la sección "Reportes". 📝';
+        } else if (lowerMsg.includes('saldo') || lowerMsg.includes('bip') || lowerMsg.includes('tarjeta')) {
+            reply = 'Puedes consultar el saldo de tu tarjeta BIP! en la sección "Consulta tu Saldo" ingresando los 8 dígitos de tu tarjeta. 💳';
         } else if (lowerMsg.includes('funciona') || lowerMsg.includes('movicerri')) {
-            reply = 'MOVICERRI utiliza cámaras con IA para detectar aglomeraciones en los paraderos y notificar a la municipalidad para mejorar la frecuencia de los buses. 🤖👀';
+            reply = 'MOVICERRI utiliza cámaras con IA para detectar aglomeraciones en los paraderos y notificar a la municipalidad para despachar más buses en tiempo real. 🤖👀';
         } else {
             reply = 'Lo siento, solo puedo responder preguntas sobre MOVICERRI, recorridos de buses (I14, I18, I01), reportes y saldo BIP. ¿Te puedo ayudar con algo de eso? 🤔';
         }
