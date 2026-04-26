@@ -63,17 +63,10 @@
             <!-- Rutas Favoritas -->
             <div class="card reveal">
                 <h3><i class="fas fa-star"></i> Mis Rutas Favoritas</h3>
-                <div class="status-list" style="margin-top: 20px;">
-                    <div class="status-item" style="background: var(--color-surface); padding: 15px; border-radius: var(--radius); margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
-                        <div class="status-info"><i class="fas fa-bus" style="color: var(--color-primary);"></i><span>Recorrido I14</span></div>
-                        <button class="btn-micro" style="background: transparent; border-color: transparent;"><i class="fas fa-trash" style="color: var(--color-text-secondary);"></i></button>
-                    </div>
-                    <div class="status-item" style="background: var(--color-surface); padding: 15px; border-radius: var(--radius); margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;">
-                        <div class="status-info"><i class="fas fa-bus" style="color: var(--color-primary);"></i><span>Recorrido I18</span></div>
-                        <button class="btn-micro" style="background: transparent; border-color: transparent;"><i class="fas fa-trash" style="color: var(--color-text-secondary);"></i></button>
-                    </div>
+                <div class="status-list" id="listaRutasFavoritas" style="margin-top: 20px;">
+                    <!-- Se renderiza desde JS -->
                 </div>
-                <button class="btn-primary" style="width: 100%; margin-top: 10px;"><i class="fas fa-plus"></i> Añadir Ruta</button>
+                <button class="btn-primary" style="width: 100%; margin-top: 10px;" onclick="promptAddRuta()"><i class="fas fa-plus"></i> Añadir Ruta</button>
             </div>
 
             <!-- Mi Tarjeta BIP vinculada -->

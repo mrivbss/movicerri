@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
     cargarSaldos();
     actualizarTarjetaVisual();
     animateCounters();
+    cargarRutasFavoritas();
 });
 
 function actualizarGrafico(recorrido, btn) {
@@ -541,6 +542,73 @@ function toggleEditBip() {
 }
 
 // ------------------------------------------------------------
+// Mi Cuenta - Rutas Favoritas
+// ------------------------------------------------------------
+const STORAGE_FAVORITAS_KEY = 'movicerri_rutas_favoritas';
+let rutasFavoritas = [];
+
+function cargarRutasFavoritas() {
+    const raw = localStorage.getItem(STORAGE_FAVORITAS_KEY);
+    if (raw) {
+        try { rutasFavoritas = JSON.parse(raw); } catch (e) { rutasFavoritas = ['I14', 'I18']; }
+    } else {
+        rutasFavoritas = ['I14', 'I18'];
+    }
+    renderRutasFavoritas();
+}
+
+function guardarRutasFavoritas() {
+    localStorage.setItem(STORAGE_FAVORITAS_KEY, JSON.stringify(rutasFavoritas));
+    renderRutasFavoritas();
+}
+
+function renderRutasFavoritas() {
+    const container = document.getElementById('listaRutasFavoritas');
+    if (!container) return;
+    
+    container.innerHTML = '';
+    
+    if (rutasFavoritas.length === 0) {
+        container.innerHTML = '<p style="text-align:center; color: var(--color-text-secondary); margin: 10px 0;">No tienes rutas favoritas.</p>';
+        return;
+    }
+    
+    rutasFavoritas.forEach(ruta => {
+        const div = document.createElement('div');
+        div.className = 'status-item';
+        div.style.cssText = 'background: var(--color-surface); padding: 15px; border-radius: var(--radius); margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center;';
+        
+        div.innerHTML = `
+            <div class="status-info"><i class="fas fa-bus" style="color: var(--color-primary);"></i><span>Recorrido ${ruta}</span></div>
+            <button class="btn-micro" style="background: transparent; border-color: transparent;" onclick="removeRutaFavorita('${ruta}')" title="Eliminar de favoritos">
+                <i class="fas fa-trash" style="color: var(--color-text-secondary);"></i>
+            </button>
+        `;
+        container.appendChild(div);
+    });
+}
+
+function promptAddRuta() {
+    const input = prompt('Ingresa el nombre del recorrido a añadir (ej. I01, 109, I14, etc.):');
+    if (!input) return;
+    
+    const ruta = input.trim().toUpperCase();
+    if (ruta && !rutasFavoritas.includes(ruta)) {
+        rutasFavoritas.push(ruta);
+        guardarRutasFavoritas();
+    } else if (rutasFavoritas.includes(ruta)) {
+        alert('Este recorrido ya está en tus favoritos.');
+    }
+}
+
+function removeRutaFavorita(ruta) {
+    if (confirm(`¿Seguro que deseas eliminar el recorrido ${ruta} de tus favoritos?`)) {
+        rutasFavoritas = rutasFavoritas.filter(r => r !== ruta);
+        guardarRutasFavoritas();
+    }
+}
+
+// ------------------------------------------------------------
 // Expose functions to HTML (inline handlers)
 // ------------------------------------------------------------
 window.toggleChatbot = toggleChatbot;
@@ -554,3 +622,5 @@ window.toggleNav = toggleNav;
 window.actualizarEstadoServicios = actualizarEstadoServicios;
 window.toggleEditProfile = toggleEditProfile;
 window.toggleEditBip = toggleEditBip;
+window.promptAddRuta = promptAddRuta;
+window.removeRutaFavorita = removeRutaFavorita;
