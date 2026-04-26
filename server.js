@@ -17,7 +17,7 @@ app.use(express.static('public'));
 const apiKeyParte1 = "AIzaSyAZl_cJ22u-EQT"; 
 const apiKeyParte2 = "1drRaKgpTGJX5lwb1Xnk";
 
-const finalApiKey = process.env.GEMINI_API_KEY || (apiKeyParte1 !== "AQUÍ_LA_PRIMERA_MITAD_DE_TU_NUEVA_LLAVE" ? apiKeyParte1 + apiKeyParte2 : null);
+const finalApiKey = process.env.GEMINI_API_KEY || (apiKeyParte1 !== "AAIzaSyAZl_cJ22u-EQT" ? apiKeyParte1 + apiKeyParte2 : null);
 
 const ai = new GoogleGenAI({ apiKey: finalApiKey || 'MISSING_KEY' });
 
