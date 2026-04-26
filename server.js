@@ -12,13 +12,18 @@ app.use(express.static('public'));
 
 // Configuración de Gemini AI
 // Se asume que process.env.GEMINI_API_KEY tiene la clave
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || 'MISSING_KEY' });
 
 // Endpoint para el chatbot
 app.post('/api/chat', async (req, res) => {
     try {
         const { message } = req.body;
         if (!message) return res.status(400).json({ error: 'Mensaje requerido' });
+
+        if (!process.env.GEMINI_API_KEY) {
+            console.error('ERROR CRÍTICO: La variable GEMINI_API_KEY no está configurada en este entorno (ej. Vercel).');
+            return res.status(500).json({ error: 'El servidor no tiene configurada la llave de IA. Por favor, revisa las variables de entorno.' });
+        }
 
         const systemInstruction = `Eres el asistente virtual de MOVICERRI, un sistema inteligente de la comuna de Cerrillos, Chile, que detecta aglomeraciones usando cámaras e IA para avisar a la municipalidad y aumentar la frecuencia de los buses.
 Tus funciones son responder preguntas ÚNICAMENTE sobre:
