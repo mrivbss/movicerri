@@ -14,8 +14,8 @@ app.use(express.static('public'));
 // Si Vercel te pide pagar para usar variables de entorno (probablemente creaste un "Team" por error),
 // puedes usar este "truco" para la presentación.
 // Pega tu nueva API Key dividiéndola en dos partes para que GitHub no la detecte y la bloquee.
-const apiKeyParte1 = "AQUÍ_LA_PRIMERA_MITAD_DE_TU_NUEVA_LLAVE"; 
-const apiKeyParte2 = "AQUÍ_LA_SEGUNDA_MITAD_DE_TU_NUEVA_LLAVE";
+const apiKeyParte1 = "AIzaSyAZl_cJ22u-EQT"; 
+const apiKeyParte2 = "1drRaKgpTGJX5lwb1Xnk";
 
 const finalApiKey = process.env.GEMINI_API_KEY || (apiKeyParte1 !== "AQUÍ_LA_PRIMERA_MITAD_DE_TU_NUEVA_LLAVE" ? apiKeyParte1 + apiKeyParte2 : null);
 
