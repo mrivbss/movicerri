@@ -115,6 +115,8 @@ async function sendChat() {
 
         if (data.reply) {
             appendChatMessage('bot', data.reply);
+        } else if (data.error) {
+            appendChatMessage('bot', `Error del servidor: ${data.error}`);
         } else {
             appendChatMessage('bot', 'Hubo un error de conexión con la IA.');
         }
@@ -122,7 +124,7 @@ async function sendChat() {
         console.error("Error al enviar mensaje a la API:", error);
         const typingEl = document.getElementById(typingId);
         if (typingEl) typingEl.remove();
-        appendChatMessage('bot', 'Problemas técnicos al contactar con la IA.');
+        appendChatMessage('bot', 'Problemas técnicos al contactar con la IA. Asegúrate de estar corriendo el servidor Node (no abriendo el archivo HTML directamente).');
     }
 }
 
