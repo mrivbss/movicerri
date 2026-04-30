@@ -1,32 +1,38 @@
-Movicerri 🚌
-Movicerri (anteriormente conocido como Cerrillos Connect) es un dashboard web interactivo diseñado para el monitoreo del transporte público en la comuna de Cerrillos. Este proyecto surge como una solución tecnológica para mejorar la movilidad de los usuarios, permitiendo visualizar la conectividad de la zona de manera eficiente.
 
-📋 Descripción del Proyecto
-El proyecto está enfocado en centralizar información crítica del transporte en Cerrillos, facilitando la planificación de viajes para los vecinos y estudiantes que transitan por la comuna. Se desarrolla bajo una metodología de trabajo estructurada, utilizando herramientas de gestión como diagramas de Gantt para cumplir con los plazos de entrega.
+# <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20Places/Bus.png" alt="Bus" width="40" /> Movicerri
 
-🚀 Tecnologías Utilizadas
-El stack tecnológico de Movicerri se basa en estándares web y herramientas de despliegue profesional:
+> **Optimización y monitoreo del transporte público en Cerrillos.**
 
-Frontend & Estructura: HTML5 y CSS3 para una interfaz responsiva y moderna.
+![GitHub repo size](https://img.shields.io/github/repo-size/mrivbss/movicerri?style=for-the-badge)
+![GitHub last commit](https://img.shields.io/github/last-commit/mrivbss/movicerri?style=for-the-badge&color=orange)
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 
-Lógica de Interacción: JavaScript (JS) para la gestión de datos y dinamismo del dashboard.
+---
 
-Contenedorización: Docker, permitiendo que el entorno de desarrollo y producción sea idéntico y fácil de desplegar.
+## 📝 Descripción
+**Movicerri** (anteriormente *Cerrillos Connect*) es un dashboard interactivo enfocado en centralizar información crítica del transporte público. El objetivo principal es facilitar la planificación de viajes para los vecinos y estudiantes que transitan entre **Cerrillos y Providencia**.
 
-Gestión de Versiones: Git y GitHub para el trabajo colaborativo y control de cambios.
+### Características clave:
+*   **Visualización en tiempo real:** Interfaz dinámica para el seguimiento de rutas.
+*   **Gestión Estructurada:** Desarrollo basado en metodologías de ingeniería con cronogramas técnicos (Gantt).
+*   **Despliegue Moderno:** Infraestructura basada íntegramente en contenedores.
 
-🛠️ Instalación y Despliegue
-Para ejecutar este proyecto de forma local utilizando Docker:
+---
 
-Clonar el repositorio:
+## 🚀 Stack Tecnológico
+Para este proyecto se seleccionaron tecnologías que garantizan escalabilidad y un entorno de desarrollo profesional:
 
-Bash
-git clone https://github.com/mrivbss/movicerri.git
-cd movicerri
-Construir y levantar el contenedor:
+*   **Estructura:** `HTML5` & `CSS3` (Diseño responsivo).
+*   **Interactividad:** `JavaScript` nativo para la lógica del dashboard.
+*   **DevOps:** `Docker` para asegurar que el proyecto corra igual en cualquier máquina.
+*   **Versionamiento:** `Git` & `GitHub`.
 
-Bash
-docker build -t movicerri .
-docker run -p 80:80 movicerri
-📅 Planificación y Desarrollo
-Como parte
+---
+
+## 🛠️ Instalación y Uso
+Asegúrate de tener **Docker** instalado en tu sistema.
+
+1. **Clonar el proyecto:**
+   ```bash
+   git clone [https://github.com/mrivbss/movicerri.git](https://github.com/mrivbss/movicerri.git)
+   cd movicerri
