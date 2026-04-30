@@ -33,7 +33,7 @@ Para este proyecto se seleccionaron tecnologías que garantizan escalabilidad y 
 ¡Hola! Soy **Martín Rivas**, estudiante de **Ingeniería Civil Informática** en la **Universidad Finis Terrae**. Me apasiona desarrollar soluciones tecnológicas que tengan un impacto real en la comunidad, como lo es **Movicerri**, un proyecto nacido de mi interés por mejorar la movilidad en la comuna de **Cerrillos**.
 
 ### 🛠️ Mis Skills
-*   **Desarrollo Web:** HTML5, CSS3 y JavaScript.
+*   **Desarrollo Web:** HTML5, CSS3, Python y JavaScript.
 *   **DevOps & Herramientas:** Manejo de Docker para contenedorización y Git/GitHub para control de versiones.
 *   **Lenguajes en aprendizaje:** Actualmente profundizando en Python para proyectos de automatización y backend.
 
