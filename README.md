@@ -10,7 +10,7 @@
 ---
 
 ## 📝 Descripción
-**Movicerri** (anteriormente *Cerrillos Connect*) es un dashboard interactivo enfocado en centralizar información crítica del transporte público. El objetivo principal es facilitar la planificación de viajes para los vecinos y estudiantes que transitan entre **Cerrillos y Providencia**.
+**Movicerri** (anteriormente *Cerrillos Connect*) es un dashboard interactivo enfocado en centralizar información crítica del transporte público. El objetivo principal es facilitar la planificación de viajes para los vecinos y estudiantes que transitan en **Cerrillos**.
 
 ### Características clave:
 *   **Visualización en tiempo real:** Interfaz dinámica para el seguimiento de rutas.
