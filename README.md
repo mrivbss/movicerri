@@ -28,21 +28,6 @@ Para este proyecto se seleccionaron tecnologías que garantizan escalabilidad y 
 *   **Versionamiento:** `Git` & `GitHub`.
 
 ---
-## 👤 Sobre el Autor
-
-¡Hola! Soy **Martín Rivas**, estudiante de **Ingeniería Civil Informática** en la **Universidad Finis Terrae**. Me apasiona desarrollar soluciones tecnológicas que tengan un impacto real en la comunidad, como lo es **Movicerri**, un proyecto nacido de mi interés por mejorar la movilidad en la comuna de **Cerrillos**.
-
-### 🛠️ Mis Skills
-*   **Desarrollo Web:** HTML5, CSS3, Python y JavaScript.
-*   **DevOps & Herramientas:** Manejo de Docker para contenedorización y Git/GitHub para control de versiones.
-*   **Lenguajes en aprendizaje:** Actualmente profundizando en Python para proyectos de automatización y backend.
-
-### 🎯 Objetivos Actuales
-*   Optimizar sistemas de monitoreo de transporte público.
-*   Explorar la integración de APIs y despliegue de microservicios con Docker.
-*   Contribuir a proyectos de código abierto que beneficien a los vecinos de mi comuna.
-
----
 ## 🛠️ Instalación y Uso
 Asegúrate de tener **Docker** instalado en tu sistema.
 
