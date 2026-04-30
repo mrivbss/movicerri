@@ -1,5 +1,5 @@
 
-# <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20Places/Bus.png" alt="Bus" width="40" /> Movicerri
+# 🚌 Movicerri
 
 > **Optimización y monitoreo del transporte público en Cerrillos.**
 
